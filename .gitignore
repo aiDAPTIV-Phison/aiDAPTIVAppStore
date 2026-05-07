@@ -121,9 +121,3 @@ src/.idea/
 *.temp
 *.bak
 *.backup
-
-# Proprietary aiDAPTIV assets/binaries (do not publish)
-aiDAPTIV/
-# Optional: keep these private if they include internal endpoints/policies
-# aidaptiv_system_check.json
-# aidaptiv_update.json

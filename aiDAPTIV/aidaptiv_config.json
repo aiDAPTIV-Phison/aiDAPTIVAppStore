@@ -1,0 +1,255 @@
+{
+  "_readme": {
+    "description": "aiDAPTIV Configuration File",
+    "llama_params_rules": {
+      "arg": "Command line argument (e.g., '-ngl', '--no-warmup')",
+      "value": "Parameter value",
+      "enabled": "Whether to include this parameter",
+      "is_flag": "If true, only add arg without value (for boolean flags)",
+      "description": "Optional description text"
+    },
+    "behavior": {
+      "is_flag=false, enabled=true": "Add: --arg value",
+      "is_flag=true, enabled=true, value=true": "Add: --arg",
+      "is_flag=true, enabled=true, value=false": "Skip (not added)",
+      "enabled=false": "Skip (not added)"
+    },
+    "note": "You can add new parameters to llama_params without modifying code",
+    "log_path_note": "When using /embedding/start_from_config, embedding log is derived from llama_log_path directory (same location). The embedding_log_path parameter is used only when calling /embedding/start directly (e.g., from tray application).",
+    "server_dir_note": "llama_server_dir, embedding_server_dir, and legacy_server_dir specify the directory containing llama-server.exe for each mode. Relative paths are resolved from the application base directory. Change these to switch llama-server versions without modifying code."
+  },
+
+  "llama_host": "127.0.0.1",
+  "llama_port": "13141",
+  "model_path": "./aidaptiv/models/gpt-oss-20b-Q4_K_M.gguf",
+  "log_path": "./logs/aidaptiv.log",
+  "llama_log_path": "./logs/aidaptiv_llama.log",
+
+  "context_size": 16384,
+  "offload_size": "90%",
+  "kv_cache_resume_policy": 1,
+
+  "embedding_model_path": "./aidaptiv/models/bge-m3-q8_0.gguf",
+  "embedding_port": 13142,
+  "embedding_log_path": "./logs/aidaptiv_embedding.log",
+
+  "llama_server_dir": "./aidaptiv",
+  "embedding_server_dir": "./llama-b6766",
+  "legacy_server_dir": "./llama-b6766",
+
+  "llama_params": {
+    "ngl": {
+      "arg": "-ngl",
+      "value": 100,
+      "enabled": true,
+      "is_flag": false,
+      "description": "Number of layers to offload to GPU"
+    },
+    "flash_attn": {
+      "arg": "-fa",
+      "value": "on",
+      "enabled": false,
+      "is_flag": false,
+      "description": "Enable flash attention"
+    },
+    "no_mmap": {
+      "arg": "--no-mmap",
+      "value": true,
+      "enabled": true,
+      "is_flag": true,
+      "description": "Disable memory mapping"
+    },
+    "escape": {
+      "arg": "-e",
+      "value": true,
+      "enabled": true,
+      "is_flag": true,
+      "description": "Escape special characters"
+    },
+    "parallel": {
+      "arg": "--parallel",
+      "value": 1,
+      "enabled": true,
+      "is_flag": false,
+      "description": "Number of parallel sequences"
+    },
+    "seed": {
+      "arg": "-s",
+      "value": 0,
+      "enabled": true,
+      "is_flag": false,
+      "description": "Random seed"
+    },
+    "dram_kv_offload_gb": {
+      "arg": "--dram-kv-offload-gb",
+      "value": 0,
+      "enabled": true,
+      "is_flag": false,
+      "description": "DRAM KV cache offload size in GB"
+    },
+    "main_gpu": {
+      "arg": "-mg",
+      "value": 0,
+      "enabled": true,
+      "is_flag": false,
+      "description": "Main GPU index"
+    },
+    "no_context_shift": {
+      "arg": "--no-context-shift",
+      "value": true,
+      "enabled": true,
+      "is_flag": true,
+      "description": "Disable context shift"
+    },
+    "no_warmup": {
+      "arg": "--no-warmup",
+      "value": true,
+      "enabled": true,
+      "is_flag": true,
+      "description": "Disable warmup"
+    },
+    "swa_full": {
+      "arg": "--swa-full",
+      "value": true,
+      "enabled": true,
+      "is_flag": true,
+      "description": "Enable full sliding window attention"
+    },
+    "vram_experts_per_layer": {
+      "arg": "--vram-experts-per-layer",
+      "value": 0,
+      "enabled": false,
+      "is_flag": false,
+      "description": "Number of experts per layer cached in VRAM. 0: disable MoE offload feature"
+    },
+    "vram_experts_cached_gb": {
+      "arg": "--vram-experts-cached-gb",
+      "value": 7,
+      "enabled": true,
+      "is_flag": false,
+      "description": "VRAM experts cache size in GB"
+    },
+    "dram_experts_per_layer": {
+      "arg": "--dram-experts-per-layer",
+      "value": 0,
+      "enabled": false,
+      "is_flag": false,
+      "description": "Number of experts per layer cached in DRAM"
+    },
+    "dram_experts_cached_gb": {
+      "arg": "--dram-experts-cached-gb",
+      "value": 0,
+      "enabled": true,
+      "is_flag": false,
+      "description": "DRAM experts cache size in GB"
+    },
+    "shared_buffer_layers": {
+      "arg": "--shared-buffer-layers",
+      "value": 1,
+      "enabled": false,
+      "is_flag": false,
+      "description": "Number of layers that share the same buffer"
+    },
+    "reasoning_format": {
+      "arg": "--reasoning-format",
+      "value": "deepseek",
+      "enabled": true,
+      "is_flag": false,
+      "description": "Reasoning format for models that support chain-of-thought (e.g., deepseek)"
+    },
+    "jinja": {
+      "arg": "--jinja",
+      "value": true,
+      "enabled": true,
+      "is_flag": true,
+      "description": "Enable Jinja template engine for chat template formatting"
+    },
+    "no_jinja": {
+      "arg": "--no-jinja",
+      "value": true,
+      "enabled": false,
+      "is_flag": true,
+      "description": "Enable No Jinja template engine for chat template formatting"
+    },
+    "debug_log_path": {
+      "arg": "--debug-log-path",
+      "value": "",
+      "enabled": false,
+      "is_flag": false,
+      "description": "Path to save debug log. Defaults to same as offload-path if not set."
+    },
+    "chat_template_kwargs": {
+      "arg": "--chat-template-kwargs",
+      "value": "\"{'reasoning_effort': 'low'}\"",
+      "enabled": true,
+      "is_flag": false,
+      "description": "Additional params for the chat template parser (JSON object string)"
+    },
+    "chat_template_file": {
+      "arg": "--chat-template-file",
+      "value": ".\\aiDAPTIV_chat_template.jinja",
+      "enabled": true,
+      "is_flag": false,
+      "description": ""
+    }
+  },
+
+  "embedding_params": {
+    "escape": {
+      "arg": "-e",
+      "value": true,
+      "enabled": true,
+      "is_flag": true,
+      "description": "Escape special characters"
+    },
+    "seed": {
+      "arg": "-s",
+      "value": 0,
+      "enabled": true,
+      "is_flag": false,
+      "description": "Random seed for embedding"
+    },
+    "host": {
+      "arg": "--host",
+      "value": "0.0.0.0",
+      "enabled": true,
+      "is_flag": false,
+      "description": "Host address for embedding server"
+    },
+    "context_size": {
+      "arg": "-c",
+      "value": 512,
+      "enabled": true,
+      "is_flag": false,
+      "description": "Context size for embedding model"
+    },
+    "ngl": {
+      "arg": "-ngl",
+      "value": 100,
+      "enabled": true,
+      "is_flag": false,
+      "description": "Number of layers to offload to GPU"
+    },
+    "offload_path": {
+      "arg": "--offload-path",
+      "value": ".",
+      "enabled": false,
+      "is_flag": false,
+      "description": "Path for offloading (embedding mode). Use '.' for aidaptiv_service.exe directory"
+    },
+    "ssd_kv_offload_gb": {
+      "arg": "--ssd-kv-offload-gb",
+      "value": 0,
+      "enabled": false,
+      "is_flag": false,
+      "description": "SSD KV offload size in GB (embedding)"
+    },
+    "dram_kv_offload_gb": {
+      "arg": "--dram-kv-offload-gb",
+      "value": 0,
+      "enabled": false,
+      "is_flag": false,
+      "description": "DRAM KV offload size in GB (embedding)"
+    }
+  }
+}
