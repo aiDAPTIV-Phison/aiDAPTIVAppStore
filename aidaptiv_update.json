@@ -1,0 +1,6 @@
+{
+  "StableEndpoint": "https://phison-software-bucket.s3.ap-northeast-1.amazonaws.com/aiDAPTIVAppStore/Staged/aiDAPTIVAppStoreUpdate/stable.ver",
+  "BetaEndpoint": "https://phison-software-bucket.s3.ap-northeast-1.amazonaws.com/aiDAPTIVAppStore/Staged/aiDAPTIVAppStoreUpdate/stable.ver",
+  "StableInstallerUrl": "https://github.com/aiDAPTIV-Phison/aiDAPTIVAppStore/releases/latest/download/aiDAPTIVAppStore_release.exe",
+  "BetaInstallerUrl": "https://github.com/aiDAPTIV-Phison/aiDAPTIVAppStore/releases/latest/download/aiDAPTIVAppStore_release.exe"
+}

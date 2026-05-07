@@ -1,6 +1,10 @@
 MIT License
 
-Copyright (c) 2026 Phison aiDAPTIV
+Copyright (c) 2026 aiDAPTIV
+Copyright (c) 2025 Martí Climent
+
+This software is a fork of UniGetUI (https://github.com/marticliment/UniGetUI)
+by Martí Climent, used under the MIT License. Modifications and enhancements by aiDAPTIV.
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -1,0 +1,4 @@
+include:
+  - project: 'devops/devops_config'
+    ref: 'release'
+    file: '${CI_PROJECT_ID}/.gitlab-ci.yml' 

@@ -1,0 +1,38 @@
+{
+  "modelFilesCheck": {
+    "enabled": true,
+    "description": "Check and download required AI models",
+    "modelDirectory": "appstore/aiDAPTIV/aidaptiv/models",
+    "requiredModels": [
+      {
+        "modelType": "main",
+        "modelName": "gpt-oss-20b-Q4_K_M",
+        "files": [
+          {
+            "fileName": "gpt-oss-20b-Q4_K_M.gguf",
+            "md5Hash": "926F23C799DBE15BAE1456BE1B011CA0",
+            "downloadUrl": "https://huggingface.co/unsloth/gpt-oss-20b-GGUF/resolve/main/gpt-oss-20b-Q4_K_M.gguf?download=true",
+            "size": 11624760032
+          }
+        ],
+        "description": "gpt-oss-20b-Q4_K_M"
+      },
+      {
+        "modelType": "embedding",
+        "modelName": "bge-m3-q8_0",
+        "files": [
+          {
+            "fileName": "bge-m3-q8_0.gguf",
+            "md5Hash": "7AD9DF8F9C8CFCAF4C6126C20DA63D27",
+            "downloadUrl": "https://huggingface.co/ggml-org/bge-m3-Q8_0-GGUF/resolve/main/bge-m3-q8_0.gguf?download=true",
+            "size": 634553760
+          }
+        ],
+        "description": "BGE-M3 Q8_0 embedding model"
+      }
+    ],
+    "verifyChecksum": false,
+    "retryCount": 3,
+    "_comment": "Progress monitoring: check download progress every 30s, if no progress for 120s then consider stalled and retry"
+  }
+}
