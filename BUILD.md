@@ -16,7 +16,6 @@ Install the following tools before building:
 3. `PowerShell 7` (`pwsh`, used by branding/manifest scripts)
 4. `7-Zip` (`7z` command, used to pack zip artifacts)
 5. Optional: `Inno Setup 6` (for generating installer `.exe`)
-6. Optional: Windows SDK SignTool + certificate `.pfx` (for code signing)
 
 ## Pre-build assets preparation
 
@@ -55,7 +54,7 @@ The script will:
 5. Assemble runtime payload into `phison_bin\`
 6. Generate integrity metadata and zip package in `output\`
 7. Optionally create installer with Inno Setup
-8. Optionally build/sign MSIX package
+8. Optionally build MSIX package
 
 ## Minimal dev build (faster iteration)
 
@@ -75,16 +74,9 @@ After a successful `build_release.cmd` run:
 - `output\<AppExecutableName>.Installer.exe` (if Inno Setup is installed)
 - `output\msix\PhisonUniGet.msix` (if MSIX flow is enabled and successful)
 
-## Signing notes
-
-- Build script will ask whether to sign binaries and/or MSIX.
-- Expected default certificate path: `certs\aiDAPTIVAppStore.pfx`
-- Ensure Windows SDK SignTool is installed and available.
-
 ## Common issues
 
 - `pwsh` not found: install PowerShell 7 and ensure it is in `PATH`.
 - `python` not found: install Python 3 and ensure it is in `PATH`.
 - `7z` not found: install 7-Zip and add it to `PATH`.
 - Inno installer skipped: install Inno Setup 6 to `%LOCALAPPDATA%\Programs\Inno Setup 6\ISCC.exe` or update the script path.
-- Signing failed: verify `.pfx` location/password and SignTool availability.
