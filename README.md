@@ -32,6 +32,7 @@ It is based on UniGetUI and extended by aiDAPTIV for installer automation, bucke
  - **[aiDAPTIV AppStore Repository](https://github.com/aiDAPTIV-Phison/aiDAPTIVAppStore)**
  - [Table of contents](#table-of-contents)
  - [Installation](#installation)
+ - [Build from source](#build-from-source)
  - [Update aiDAPTIV AppStore](#update-aidaptiv-appstore)
  - [Features](#features)
  - [Translating aiDAPTIV AppStore](#translating-aidaptiv-appstore-to-other-languages)
@@ -54,6 +55,17 @@ It is based on UniGetUI and extended by aiDAPTIV for installer automation, bucke
 - Installs `git` and `scoop-search` when missing.
 - Prompts for an optional KV cache directory and writes it to user env var `PHISON_AIDAPTIV`.
 - Supports update mode through installer parameter `/UPDATE`.
+
+## Build from source
+
+For developers who want to build aiDAPTIV AppStore locally, see the full build guide in [BUILD.md](BUILD.md).
+
+Quick start:
+
+1. Install prerequisites from `BUILD.md` (`.NET 8 SDK`, `Python 3`, `PowerShell 7`, `7-Zip`, optional `Inno Setup 6`).
+2. From repository root, run:
+   `build_release.cmd`
+3. Get build artifacts from `output\` (zip package, and installer if Inno Setup is available).
 
 ## Update aiDAPTIV AppStore
 
